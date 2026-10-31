@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>HALA Privacy Policy</title>
-<meta name="description" content="Privacy policy for HALA, a local-first navigation app by Shabplt System.">
+<meta name="description" content="Privacy policy for HALA, a local-first navigation app by Shabplt System with optional anonymous community reports.">
 <style>
   :root {
     --green: #0b3d2e;
@@ -86,19 +86,19 @@
       <span>HALA</span>
     </div>
     <h1>Privacy Policy</h1>
-    <p class="updated">Last updated: 27 October 2026 · Applies to HALA for Android and the web</p>
+    <p class="updated">Last updated: 31 October 2026 · Applies to HALA for Android and the web</p>
   </div>
 </header>
 
 <main class="wrap">
   <section class="summary">
     <h2>Ringkasan Bahasa Melayu</h2>
-    <p>HALA menyimpan tempat, carian, laporan, ulasan, gambar dan tetapan anda di peranti anda sahaja. Tiada akaun, tiada iklan, tiada analitik dan tiada penjualan data. Untuk memaparkan peta dan mengira laluan, aplikasi menghantar koordinat dan carian yang diperlukan kepada penyedia peta dan laluan pihak ketiga seperti OpenFreeMap, Photon, Valhalla/OSRM dan Transitous. Lokasi latar belakang tidak digunakan dalam versi ini. Polisi penuh dalam bahasa Inggeris di bawah.</p>
+    <p>HALA menyimpan tempat, carian, ulasan, gambar dan tetapan anda di peranti anda. Laporan jalan raya kekal di peranti secara lalai. Anda boleh memilih untuk berkongsi laporan dengan pemandu lain yang turut memilih masuk; HALA kemudian mencipta ID Firebase tanpa nama dan menghantar titik laporan, nota pilihan, jenis, masa dan kawasan kasar ke Firebase/Firestore. Tiada akaun, tiada iklan, tiada analitik dan tiada penjualan data. Untuk memaparkan peta dan mengira laluan, aplikasi menghantar koordinat dan carian yang diperlukan kepada penyedia peta dan laluan pihak ketiga seperti OpenFreeMap, Photon, Valhalla/OSRM dan Transitous. Lokasi latar belakang tidak digunakan dalam versi ini. Polisi penuh dalam bahasa Inggeris di bawah.</p>
   </section>
 
   <section>
     <h2>About HALA</h2>
-    <p>HALA is a free navigation and map app developed by Shabplt System in Malaysia. HALA is built local-first: the places you save, the searches you make, the reports you add and the settings you choose stay on your device. We do not operate user accounts, advertising, analytics, or a server that stores your personal data.</p>
+    <p>HALA is a free navigation and map app developed by Shabplt System in Malaysia. HALA is built local-first: the places you save, the searches you make, the reviews and reports you add, and the settings you choose stay on your device by default. We do not operate user accounts, advertising, analytics, or a server for your saved places. Community reports are an optional feature that uses Google Firebase/Firestore only after you turn it on.</p>
     <p>This policy explains what stays on your device, what leaves it when you use the map, and the choices you have.</p>
   </section>
 
@@ -109,7 +109,7 @@
       <li>Saved places, home and work shortcuts, and favourite stops.</li>
       <li>Recent searches and recent routes.</li>
       <li>Settings such as theme, units, language and voice preference.</li>
-      <li>Road reports you create, and their expiry times.</li>
+      <li>Road reports you create and their expiry times, unless you opt in to community reports. If enabled, the device also keeps an anonymous Firebase ID and local copies of reports you shared.</li>
       <li>Star ratings, reviews and compressed photos you add to places.</li>
       <li>Offline map regions and cached routes you choose to download.</li>
       <li>The last known position, so the map can reopen near you.</li>
@@ -138,13 +138,23 @@
       <li><strong><a href="https://www.esri.com/en-us/privacy/privacy-statements/privacy-statement" target="_blank" rel="noopener">Esri World Imagery</a></strong> — satellite tiles, only when satellite view is selected.</li>
       <li><strong>Wikipedia and Wikimedia Commons</strong> — place descriptions and photos, only when you open a place that has them, plus the image host credited for a photo.</li>
       <li><strong>OpenStreetMap API</strong> — details for the selected map element.</li>
+      <li><strong>Firebase Authentication and Cloud Firestore</strong> (Google) — only when community reports are enabled.</li>
     </ul>
     <p>These providers may log requests, including IP addresses, under their own privacy policies. HALA does not receive those logs and does not build a profile from them. Requests are made over HTTPS.</p>
   </section>
 
   <section>
     <h2>Road reports</h2>
-    <p>Reports you create are stored only on your device. This version has no community server, so a report is not sent to other people. Reports expire automatically, and you can remove them by clearing app data.</p>
+    <p>Reports you create are stored on your device by default and are not sent to other people unless you enable community reports. Reports expire automatically. While community reports are on, you can delete your own shared report from the report detail sheet. When sharing is off, you can remove the local copy and turn sharing back on to delete the shared cloud copy. Clearing app data removes local data.</p>
+  </section>
+
+  <section>
+    <h2>Community road reports (optional)</h2>
+    <p>Community reports are off by default. HALA does not load Firebase or send Firebase requests until you enable the feature in Profile → Community reports.</p>
+    <p>When enabled, HALA silently creates an anonymous Firebase Authentication session. No email, phone number, password, or social account is requested. The app sends the report type, point location, optional bearing and note, timestamps, expiry, a coarse H3 area cell, and the anonymous Firebase ID to Cloud Firestore. Other HALA users who opted in can read active reports near them. Firebase/Google also receives standard request metadata such as IP address and user agent.</p>
+    <p>HALA does not upload a continuous GPS trail, speed history, route history, saved places, reviews, or photos. On first enable, active local reports from the last 24 hours may be uploaded; older reports stay on the device. If Firebase or the network is unavailable, reports stay local.</p>
+    <p>Turning community reports off stops all community reads and writes and hides shared reports on your device. Local copies remain. Reports you already shared stay visible to other opted-in users until they expire unless you delete them from your own report details. HALA keeps the anonymous session on the device so you can turn sharing back on and manage reports; clearing app data or uninstalling removes the anonymous ID and that ability.</p>
+    <p>Expired cloud reports may remain in Firestore storage because automatic TTL deletion is not enabled in this build. The app and security rules deny reads of expired reports. Operational cleanup removes them separately.</p>
   </section>
 
   <section>
@@ -166,7 +176,7 @@
   <section>
     <h2>What HALA does not do</h2>
     <ul>
-      <li>No user accounts, sign-in or cloud sync.</li>
+      <li>No user accounts or sign-in. Community reports, when enabled, use an anonymous Firebase ID; there is no cross-device sync.</li>
       <li>No advertising and no advertising SDKs.</li>
       <li>No analytics, tracking pixels or crash-reporting SDKs.</li>
       <li>No selling or renting of personal data.</li>
@@ -192,12 +202,12 @@
 
   <section>
     <h2>Retention and deletion</h2>
-    <p>Data stored by HALA remains on your device until you delete it. You can clear it in Android Settings → Apps → HALA → Storage, or by uninstalling the app. Because we do not run accounts or a user-data server, there is no server-side profile to delete. If you contact us with a privacy question, we keep that correspondence only as long as needed to answer it.</p>
+    <p>Data stored by HALA remains on your device until you delete it. Saved places, reviews, photos, and local reports can be cleared in Android Settings → Apps → HALA → Storage or by uninstalling. Community report documents are stored in Cloud Firestore while they are active; you can delete your own reports in the app while community reports are on, and they expire. If sharing is off, turn it back on to delete a shared copy, or contact us after clearing app data. Because HALA has no user accounts, there is no personal profile to delete. If you contact us with a privacy question, we keep that correspondence only as long as needed to answer it.</p>
   </section>
 
   <section>
     <h2>Changes to this policy</h2>
-    <p>If HALA's data practices change — for example, if an opt-in shared-reports feature is added — we will update this page and its date before the change takes effect. Material changes will also be noted in the app's release notes.</p>
+    <p>If HALA's data practices change, we will update this page and its date before the change takes effect. Material changes will also be noted in the app's release notes. Community reports were added on 31 October 2026 as an optional, off-by-default feature.</p>
   </section>
 
   <section class="note">
