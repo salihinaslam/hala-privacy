@@ -200,9 +200,15 @@
     <p>HALA is a general-purpose navigation app and is not directed at children under 13. It has no accounts and does not knowingly collect personal information from children.</p>
   </section>
 
-  <section>
-    <h2>Retention and deletion</h2>
-    <p>Data stored by HALA remains on your device until you delete it. Saved places, reviews, photos, and local reports can be cleared in Android Settings → Apps → HALA → Storage or by uninstalling. Community report documents are stored in Cloud Firestore while they are active; you can delete your own reports in the app while community reports are on, and they expire. If sharing is off, turn it back on to delete a shared copy, or contact us after clearing app data. Because HALA has no user accounts, there is no personal profile to delete. If you contact us with a privacy question, we keep that correspondence only as long as needed to answer it.</p>
+  <section id="delete-data">
+    <h2>Delete your data</h2>
+    <p>You can delete community reports and local HALA data as follows:</p>
+    <ol>
+      <li><strong>Delete a shared report:</strong> while community reports are on, open the report in HALA and tap <strong>Delete this report</strong>. If sharing is off, turn it back on to delete the shared copy; otherwise you can remove only the local copy.</li>
+      <li><strong>Delete local data:</strong> open Android Settings → Apps → HALA → Storage → Clear storage, or uninstall HALA. This removes saved places, searches, settings, local reviews/photos, local reports, the anonymous Firebase session, and cached data.</li>
+      <li><strong>Need help after clearing app data?</strong> Email <a href="mailto:aslamafendi@gmail.com">aslamafendi@gmail.com</a> with the approximate report area and time; we will delete the shared report.</li>
+    </ol>
+    <p><strong>Deleted:</strong> local HALA data (as above) and community reports you delete. <strong>Kept temporarily:</strong> reports you do not delete remain visible to opted-in drivers until they expire; expired cloud documents may remain in Firestore storage because automatic TTL deletion is not enabled, but they are excluded from all app reads. The anonymous Firebase ID is removed when you clear app data or uninstall. Support correspondence is kept only as long as needed to answer it. Because HALA has no user accounts, there is no personal profile to delete.</p>
   </section>
 
   <section>
